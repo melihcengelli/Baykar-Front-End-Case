@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="./style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        .clip-triangle {
+          clip-path: polygon(100% 25%, 100% 100%, 0 100%);
+        }
+        .relative-container::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translate(-50%,10%);
+            width: 80%;
+            height: 100%;
+            background-color: #FBBF24;
+            z-index: -1;
+            border-radius: 50px;
+        }
+        .tlu-bg::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left:50%;
+            background-color: #FDE68A;
+            width: 95%;
+            height: 100%;
+            z-index: -1;
+            transform: translate(-50%,-15%);
+        }
+        .slider-container {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory; 
+        }
+
+        .slider-item {
+            flex: 0 0 auto;
+            width: 384px;
+            height: 430px;
+            border-radius: 20px;
+            border: 1px solid #E2E8F0;
+            padding: 32px;
+            gap: 16px;
+        }
+        .btn {
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            border: 1.5px solid #78350F;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            margin: 0 6px;
+            border-radius: 100px;
+        }
+        .btn:hover {
+            background-color: rgba(255,255,255,.5);
+        }
+        .btn-container {
+            text-align: center;
+        }
+        .grid-cols-custom {
+            grid-template-columns: 256px 1fr;
+        }
+        .test-img::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform: translateY(50%);
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-color: blue;
+        }
+      </style>
+
+</head> 
+<body class="bg-custom-color1 ">
+    <header class="sticky top-0 left-0 right-0 flex flex-row justify-between max-lg:p-[16px] lg:py-6 lg:px-20 items-center z-50 bg-custom-color1 w-fill">
+        
+        <h1 class="text-[32px] font-semibold text-custom-text-color font-roboto">Collers</h1>
+
+        <img class="lg:hidden" src="./assets/menu-scale.svg" alt="menu">
+        <div class="flex flex-row items-center space-x-4 max-lg:hidden">
+            <nav>
+                <ul class="flex flex-row space-x-4">
+                    <li class="text-custom-text-color font-roboto font-medium text-base leading-6 tracking-[0.5px]"><a href="#home">Products</a></li>
+                    <li class="text-custom-text-color font-roboto font-medium text-base leading-6 tracking-[0.5px]"><a href="#solutions">Solutions</a></li>
+                    <li class="text-custom-text-color font-roboto font-medium text-base leading-6 tracking-[0.5px]"><a href="#pricing">Pricing</a></li>
+                    <li class="text-custom-text-color font-roboto font-medium text-base leading-6 tracking-[0.5px]"><a href="#resources">Resources</a></li>
+                    <li class="text-custom-text-color font-roboto font-medium text-base leading-6 tracking-[0.5px]"><a href="#login">Log In</a></li>
+                </ul>
+            </nav>
+            <button class="border border-custom-text-color px-4 py-2 rounded-lg text-custom-text-color font-medium hover:bg-custom-text-color hover:border-white hover:text-white hover:scale-105 hover:transition-all">Sign up now</button>
+        </div>
+
+    </header>
+
+    <main class="z-40 overflow-hidden">
+        <div class="relative pb-10">
+            <!-- THE TRIANGLE -->
+            <div class="absolute top-0 right-0 bottom-0 left-0 bg-custom-color2 clip-triangle z-0"></div>
+
+            <!-- COLLECTIBLE SNEAKERS -->
+            <div class="max-lg:flex max-lg:flex-col lg:grid lg:grid-cols-12 w-full">
+
+                <div class="col-span-12 z-10 max-lg:flex max-lg:flex-col lg:grid lg:grid-cols-12 max-lg:py-[48px] max-lg:px-[16px] lg:p-20 gap-12 w-fill items-center ">
+
+                    <div class="justify-center items-start flex flex-col text-left w-full max-lg:gap-8 lg:gap-12 col-span-8 max-lg:items-center max-lg:text-center">
+                        <h2 class="max-lg:text-[56px] lg:text-[72px] max-lg:leading-[61.6px] lg:leading-[79.2px] font-bold font-roboto">Collectible Sneakers</h2>
+                        <p class="text-[18px] w-fill font-roboto">
+                            Sit elit feugiat turpis sed integer integer accumsan turpis. Sed suspeendisse nec lorem mauris. Pharetra, eu imperdiet ipsum ultrices amet.
+                        </p>
+                        <div class="flex w-full max-lg:justify-center lg:justify-start flex-row items-center space-x-4 gap-4 ">
+                            <button class="border border-red-950 p-4 rounded-lg text-red-950 font-medium hover:bg-custom-text-color hover:border-white hover:text-white hover:scale-105 hover:transition-all">
+                                <p class="px-4 text-[20px] leading-6">Sign up now</p>
+                            </button>
+                            <button class="flex rounded-lg py-3 px-2 hover:scale-105 transition-all">
+                                <img class="w-6 y-6" src="./assets/vector23.svg" alt="play">
+                                <h1 class="px-2 font-roboto font-medium text-base leading-[24px] tracking-[0.5px] text-[#78350F] ">Watch Demo</h1>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="col-span-4 w-fit h-fit relative relative-container">
+                        <img class="z-20 " src="./assets/Pexels Photo by Ray Piedra.png" alt="sari">
+                    </div>
+
+                </div>
+
+                <div class="max-lg:flex max-lg:flex-col max-lg:justify-center max-lg:items-center max-lg:text-center lg:grid lg:grid-cols-12 col-span-12  z-10 max-lg:py-[48px] max-lg:px-[16px] lg:p-20 gap-20">
+
+                    <div class="flex flex-col col-span-4 space-y-2 max-lg:items-center max-lg:gap-[16px] max-lg:w-[373.33px]">
+                        <div class="relative flex w-[64px] h-[64px]">
+                            <img class="absolute top-0 left-0 w-[64px] h-[64px]" src="./assets/trophy.png" alt="trophy">
+                            <img class="absolute top-0 left-0 max-lg:w-[55px] max-lg:h-[45px] lg:w-[55px] lg:h-[45px] translate-x-1/2" src="./assets/Rectangle 25.png" alt="rectangle">
+                        </div>
+                        <h1 class="max-lg:font-medium lg:font-semibold text-[20px] font-roboto leading-[22px] max-lg:gap-[8px]">Nibh vivierra</h1>
+                        <p class="text-[18px] leading-[28.8px] font-normal text-[#0F172A]">
+                            Sit bibendum donec dolor fames neque vulputate non sit aliquam. Consequat turpis natoque leo, massa.
+                        </p>
+                    </div>
+
+                    <div class="flex flex-col col-span-4 space-y-2 max-lg:items-center max-lg:gap-[16px] max-lg:w-[373.33px]">
+                        <div class="relative flex w-[64px] h-[64px]">
+                            <img class="absolute top-0 left-0 w-[64px] h-[64px]" src="./assets/Icon.png" alt="trophy">
+                            <img class="absolute top-0 left-0 opacity-50 w-[45px] h-[45px] translate-x-1/2" src="./assets/Rectangle 26.png" alt="rectangle">
+                        </div>
+                        <h1 class="max-lg:font-medium lg:font-semibold text-[20px] font-roboto leading-[22px]">Curcus amet</h1>
+                        <p class="text-[18px] leading-[28.8px] font-normal text-[#0F172A]">
+                            Sit bibendum donec dolor fames neque vulputate non sit aliquam. Consequat turpis natoque leo, massa.
+                        </p>
+                    </div> 
+ 
+                    <div class="flex flex-col col-span-4 space-y-2 max-lg:items-center max-lg:gap-[16px] max-lg:w-[373.33px]">
+                        <div class="relative flex w-[64px] h-[64px]">
+                            <img class="absolute top-0 left-0 w-[64px] h-[64px]" src="./assets/tv.png" alt="trophy">
+                            <img class="absolute top-0 left-0 w-[45px] h-[45px] translate-x-[75%]" src="./assets/Rectangle 27.png" alt="rectangle">
+                        </div>
+                        <h1 class="max-lg:font-medium lg:font-semibold text-[20px] font-roboto leading-[22px]">Ipsum fermentum</h1>
+                        <p class="text-[18px] leading-[28.8px] font-normal text-[#0F172A]">
+                            Sit bibendum donec dolor fames neque vulputate non sit aliquam. Consequat turpis natoque leo, massa.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        
+        <!-- THE BEST OF THE BEST -->
+        <div class="grid grid-cols-1 bg-custom-color3 w-full h-fit max-lg:py-[48px] max-lg:px-[16px] lg:p-20 max-lg:gap-8 lg:gap-20 border-y-[1px] z-20">
+
+           <div class="flex flex-col md:flex-row items-center justify-center md:justify-between max-lg:gap-8 lg:gap-20 ">   
+
+                <h1 class="text-white font-roboto text-[32px] md:text-[56px] font-extrabold leading-[61.6px] gap-8">
+                    The best of the best
+                </h1>
+
+                <button class="text-white font-roboto font-bold text-[24px] leading-[24px] tracking-[0.5px] border-2 py-[20px] px-[24px] rounded-[8px] hover:bg-white hover:text-custom-color3 hover:border-white hover:transition-all">
+                    <p class="px-6">Sign up now</p>
+                </button>
+
+           </div>
+
+           <div class="lg:grid lg:grid-cols-12 max-lg:flex max-lg:flex-col h-fit w-full max-lg:gap-8 lg:gap-12 relative justify-center   lg:py-0 lg:px-0 ">
+                
+            
+                <div class="relative w-fit h-fit col-span-12  lg:col-span-4 md:w-full rounded-[10px] border-[1px] border-custom-color3 shadow-light-xxl-blur-spread z-20">
+
+                    <div class="w-[271px] h-[271px] max-lg:bottom-[-5%] lg:top-[35%] lg:left-[-10%] rounded-[50px] opacity-75 absolute bg-[#BE185D] -z-10"></div>
+
+                    <div class="bg-custom-color3">
+                    
+                    <img class="w-full rounded-[4px] gap-[10px]" src="./assets/picture1.png" alt="shoes">
+                    
+                    <div class="w-full h-fit pt-8 px-8 gap-4">
+                        <h1 class="font-roboto font-bold text-2xl leading-[26.4px] text-white mb-[5px]">
+                            Title
+                        </h1>
+                        <p class="font-roboto font-normal text-lg leading-[28.8px] text-white">
+                          Egestas elit dui scelerisque ut eu purus aliquam vitae habitasse.  
+                        </p>
+                    </div>
+
+                    <div class="w-full p-8 gap-4">
+                        <button class="w-full h-fit rounded-[8px] border-2 p-4 justify-center items-center flex space-x-2 hover:bg-[rgba(255,255,255,.15)]  hover:border-white hover:transition-all">
+                            <img class="w-[17.97px] h-[16px]" src="./assets/icon2.png" alt="icon">
+                            <h1 class="px-4 text-white font-roboto text-xl leading-6 tracking-[0.5px]">Buy Now</h1>
+                        </button>
+                    </div>
+
+                </div>
+                </div>
+
+                <div class="relative col-span-12 sm:col-span-4  md:w-full h-fit rounded-[10px] border-[1px] border-custom-color3 shadow-light-xxl-blur-spread z-20">
+                    <div class="w-[161px] h-[161px] max-lg:right-[-4%] max-lg:top-[35%] lg:top-[-7.5%] lg:left-[-7.5%] rounded-[50px] opacity-75 absolute bg-[#0369A1] -z-10"></div>
+                    <div class="w-[130px] h-[130px] max-lg:bottom-[10%] max-lg:left-[20%] lg:bottom-[5%] lg:right-[-5%] rounded-[30px] opacity-75 absolute bg-[#B45309] -z-10"></div>
+
+                    <div class="bg-custom-color3">
+
+                    
+                        <img class="w-full rounded-[4px] gap-[10px]" src="./assets/picture2.png" alt="shoes">
+                        
+                        <div class="w-full h-fit pt-8 px-8 gap-4">
+                            <h1 class="font-roboto font-bold text-2xl leading-[26.4px] text-white mb-[5px]">
+                                Title
+                            </h1>
+                            <p class="font-roboto font-normal text-lg leading-[28.8px] text-white">
+                            Egestas elit dui scelerisque ut eu purus aliquam vitae habitasse.  
+                            </p>
+                        </div>
+
+                        <div class="w-full p-8 gap-4">
+
+                            <button class="w-full h-fit rounded-[8px] border-2 p-4 justify-center items-center flex space-x-2 hover:bg-[rgba(255,255,255,.15)]  hover:border-white hover:transition-all">
+                                <img class="w-[17.97px] h-[16px]" src="./assets/icon2.png" alt="icon">
+                                <h1 class="px-4 text-white font-roboto text-xl leading-6 tracking-[0.5px]">Buy Now</h1>
+                            </button>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="relative col-span-12 sm:col-span-4  md:w-full h-fit rounded-[10px] border-[1px] border-custom-color3 shadow-light-xxl-blur-spread z-20">
+                    <div class="w-[202px] h-[202px] max-lg:left-[-5%] max-lg:top-[10%] lg:bottom-[-5%] lg:left-[50%] lg:-translate-x-1/2 rounded-[30px] opacity-75 absolute bg-[#A21CAF] -z-10"></div>
+                    <div class="w-[232px] h-[232px] max-lg:right-[10%] max-lg:top-[25%] lg:top-[10%] lg:right-[-10%] rounded-[50px] opacity-75 absolute bg-[#15803D] -z-10"></div>
+                    <div class="bg-custom-color3">
+                        <img class="w-full rounded-[4px] gap-[10px]" src="./assets/picture3.png" alt="shoes">
+                    
+                        <div class="w-full h-fit pt-8 px-8 gap-4">
+                            <h1 class="font-roboto font-bold text-2xl leading-[26.4px] text-white mb-[5px]">
+                                Title
+                            </h1>
+                            <p class="font-roboto font-normal text-lg leading-[28.8px] text-white">
+                              Egestas elit dui scelerisque ut eu purus aliquam vitae habitasse.  
+                            </p>
+                        </div>
+    
+                        <div class="w-full p-8 gap-4">
+                            <button class="w-full h-fit rounded-[8px] border-2 p-4 justify-center items-center flex space-x-2 hover:bg-[rgba(255,255,255,.15)]  hover:border-white hover:transition-all">
+                                <img class="w-[17.97px] h-[16px]" src="./assets/icon2.png" alt="icon">
+                                <h1 class="px-4 text-white font-roboto text-xl leading-6 tracking-[0.5px]">Buy Now</h1>
+                            </button>
+                        </div>
+                    </div>
+                    
+
+                </div>
+
+                
+                
+                
+            </div>
+
+        </div>
+
+        <!-- WHY JOIN US -->
+        <div class="w-full max-lg:pt-[16px] max-lg:pb-[56px] lg:py-[160px] max-lg:px-[16px] lg:px-[80px]">
+            <div class="w-full grid grid-cols-1 xl:grid-cols-2 h-fit items-center rounded-[30px] max-lg:py-[32px] max-lg:px-[16px] lg:p-[80px] max-lg:gap-[32px] lg:gap-[80px] shadow-dark-xl-blur-spread">
+                <div class="col-span-1 gap-6 flex flex-col max-lg:justify-center max-lg:items-center lg:justify-start h-fit z-20">
+                    <h2 class="max-lg:font-bold lg:font-extrabold max-lg:text-[32px] lg:text-[56px] max-lg:leading-[35.2px] lg:leading-[61.6px] gap-6">Why join us</h2>
+                    <ul class="font-roboto font-normal max-lg:text-base lg:text-xl leading-9">
+                        <li class="flex items-center gap-2"><div class="w-6 h-6 items-center justify-center flex"><img class="w-[13.33px] h-[9.07px]" src="./assets/Vector2.png" alt="vector"></div>Est et in pharetra magna adipiscing ornare aliquam.</li>
+                        <li class="flex items-center gap-2"><div class="w-6 h-6 items-center justify-center flex"><img class="w-[13.33px] h-[9.07px]" src="./assets/Vector2.png" alt="vector"></div>Tellus arcu sed consequat ac velit ut eu blandit.</li>
+                        <li class="flex items-center gap-2"><div class="w-6 h-6 items-center justify-center flex"><img class="w-[13.33px] h-[9.07px]" src="./assets/Vector2.png" alt="vector"></div>Ullamcorper ornare in et egestas dolor orci.</li>
+                    </ul>
+                    <button class="rounded-lg border-[2px] p-4 px-4 h-fit w-fit border-[#78350F] hover:bg-[#78350F] hover:text-white text-[#78350F] transition-all">
+                       <p class="font-roboto text-xl font-medium leading-6 tracking-[0.5px] px-4 ">Sign up now</p> 
+                    </button>
+                </div>
+
+                <!-- VIDEO -->
+                <div class="relative z-10  h-full col-span-1"> 
+                    <div class="absolute aspect-square bottom-0 right-0 translate-x-1/2 translate-y-1/2 w-[41%]  bg-[#BE185D] -z-10 rounded-[22%] opacity-75">
+                        <div class="absolute top-1/2 left-0 -translate-y-1/2 -translate-x-1/2 opacity-75 w-[34%] h-[34%] rounded-[40.5%] bg-[#A21CAF] -z-10"></div>
+                    </div>
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -rotate-45 w-[128.131%]  h-[62.2858%] bg-[#FDE68A] -z-10">
+                        <div class="absolute top-1/2 right-0 -translate-y-1/2 translate-x-1/2 opacity-75 w-[8.85%] h-[27.53%] rounded-full bg-[#0369A1]"></div>
+                    </div>
+                    <div class="absolute top-0 left-0 -translate-x-[20%] translate-y-[30%] opacity-75 w-[17.31%] h-[25.71%] rounded-[33.33%] bg-[#B45309]"></div>
+
+
+                    <div class="relative shadow-dark-xxl-combined border-[5px] border-white rounded-[20px] flex flex-col h-full">
+                        <div class="w-full h-[41px] py-2 px-4 gap-7 flex z-20 bg-white ">
+                            <div class="gap-[5px] flex items-center">
+                                <div class="w-[10px] h-[10px] flex items-center justify-center">
+                                    <img src="./assets/vector4.svg" alt="SVG Image" width="8.33" height="8.33">
+                                </div>
+                                <div class="w-[10px] h-[10px] flex items-center justify-center">
+                                    <img src="./assets/vector5.svg" alt="SVG Image" width="8.33" height="8.33">
+                                </div>
+                                <div class="w-[10px] h-[10px] flex items-center justify-center">
+                                    <img src="./assets/vector6.svg" alt="SVG Image" width="8.33" height="8.33">
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="rounded gap-[10px] flex flex-col relative z-20 h-full">
+                            <div class="absolute bottom-0 left-0 translate-x-[100%] translate-y-1/2 opacity-75 w-[85px] h-[86px] rounded-[50px] bg-[#15803D]"></div>
+
+                            <button class="absolute w-fit h-fit pr-5 py-6 pl-7 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-[100px] bg-[rgba(18,22,25,.75)] hover:bg-[rgba(18,22,25,1)] transition-all flex items-center justify-center">
+                                <div class="flex justify-center items-center w-[96px] h-[96px]">
+                                    <img class="w-[64px] h-[72px]" src="./assets/vector3.png" alt="play">
+                                </div>
+                            </button>
+
+                            <div class="w-full h-full max-h-full flex bg-blue-300 rounded-b-[15px]">
+                                <img class="object-cover aspect-video rounded-b-[15px]" src="./assets/db2b7a8550bf0cb7642ab1c51682f47c.jpeg" alt="video">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- BECAUSE THEY LOVE US -->
+        <div  class="w-full h-fit py-[80px] gap-[80px]">
+            <div  class="flex max-lg:justify-center lg:justify-between p-[80px] gap-[80px] mb-[20px]">
+                <h2 class="font-roboto max-lg:font-bold lg:font-extrabold max-lg:text-[32px] lg:text-[56px] max-lg:leading-[35.2px] lg:leading-[61.6px]">Because they love us</h2>
+                <div class="btn-container max-lg:hidden">
+                    <button class="btn" id="prevBtn">
+                        <img src="./assets/vector11.svg" alt="arrow">
+                    </button>
+                    <button class="btn" id="nextBtn">
+                        <img src="./assets/vector12.svg" alt="arrow">
+                    </button>
+                </div>
+            </div>
+            <div class="flex-1 flex items-center justify-center relative tlu-bg">
+                <div id="sliderContainer" class="slider-container scrollbar-hide flex items-center gap-8 p-8">
+                    <!-- USER 1 -->
+                    <div class="slider-item bg-white gap-4 justify-between flex flex-col shadow-user-card-shadow">
+                        <div class="flex py-4 items-center gap-2">
+                            <img class="w-[55.81px] h-[32px]" src="./assets/vector8.svg" alt="shell">
+                            <h6 class="font-roboto font-bold text-2xl leading-[26.4px] text-[#475569]">kontrastr</h6>
+                        </div>
+                        <p class="font-roboto font-normal text-2xl leading-[38.4px] ">Amet morbi enim sodales quis dui, in habitant pharetra. Risus id fringilla sed adipiscing volutpat sit varius turpis. Sed pretium se.</p>
+                        <div class="w-full flex pt-4 gap-4  items-center">
+                            <img class="w-[64px] h-[64px] aspect-square rounded-[100px] gap-[10px]" src="./assets/a133e5565bc0d4b1f4935a0c29d9b29d.jpeg" alt="user">
+                            <div class="w-full flex flex-col">
+                                <h1 class="font-roboto font-normal text-lg leading-[28.8px] text-black">Ralph Edwards</h1>
+                                <h3 class="font-roboto font-normal text-base leading-[22.4px] text-[#475569]">Product Designer</h3>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- USER 2 -->
+                    <div class="slider-item bg-white gap-4 justify-between flex flex-col shadow-user-card-shadow">
+                        <div class="flex py-4 items-center gap-2">
+                            <img class="w-[32px] h-[32px]" src="./assets/vector10.svg" alt="shell">
+                            <h6 class="font-roboto font-bold text-2xl leading-[26.4px] text-[#475569]">Zoomerr</h6>
+                        </div>
+                        <p class="font-roboto font-normal text-2xl leading-[38.4px] ">Non risus viverra enim, quis. Eget vitae arcu vivamus sit tellus, viverra turpis lorem. Varius a turpis urna id porttitor.</p>
+                        <div class="w-full flex pt-4 gap-4  items-center">
+                            <img class="w-[64px] h-[64px] aspect-square rounded-[100px] gap-[10px]" src="./assets/f83fbd49cdf87134bb331c6a7d3a9eaa.jpeg" alt="user">
+                            <div class="w-full flex flex-col">
+                                <h1 class="font-roboto font-normal text-lg leading-[28.8px] text-black">Hellen Jumy</h1>
+                                <h3 class="font-roboto font-normal text-base leading-[22.4px] text-[#475569]">Team Lead</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- USER 3 -->
+                    <div class="slider-item bg-white gap-4 justify-between flex flex-col shadow-user-card-shadow">
+                        <div class="flex py-4 items-center gap-2">
+                            <img class="w-[30.4px] h-[32px]" src="./assets/vector7.svg" alt="shell">
+                            <h6 class="font-roboto font-bold text-2xl leading-[26.4px] text-[#475569]">SHELLS</h6>
+                        </div>
+                        <p class="font-roboto font-normal text-2xl leading-[38.4px] ">Aliquet ridiculus mi porta habitant vulputate rhoncus, mattis amet enim. Sit purus venenatis velit semper lectus sed ornare quam nulla.</p>
+                        <div class="w-full flex pt-4 gap-4  items-center">
+                            <img class="w-[64px] h-[64px] aspect-square rounded-[100px] gap-[10px]" src="./assets/b81e766e223bcb38bd406643740bb4b1.jpeg" alt="user">
+                            <div class="w-full flex flex-col">
+                                <h1 class="font-roboto font-normal text-lg leading-[28.8px] text-black">Hellena John</h1>
+                                <h3 class="font-roboto font-normal text-base leading-[22.4px] text-[#475569]">Co-founder</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- USER 4 -->
+                    <div class="slider-item bg-white gap-4 justify-between flex flex-col shadow-user-card-shadow">
+                        <div class="flex py-4 items-center gap-2">
+                            <img class="w-[55.81px] h-[32px]" src="./assets/vector8.svg" alt="shell">
+                            <h6 class="font-roboto font-bold text-2xl leading-[26.4px] text-[#475569]">ArtVenue</h6>
+                        </div>
+                        <p class="font-roboto font-normal text-2xl leading-[38.4px] ">A eget sed posuere dui risus habitasse mauris. Venenatis aliquet id ultrices a lacus. Pretium vehicula pretium posuere justo sed.</p>
+                        <div class="w-full flex pt-4 gap-4  items-center">
+                            <img class="w-[64px] h-[64px] aspect-square rounded-[100px] gap-[10px]" src="./assets/76a09dd9880480e7c59f7385cde7161f.jpeg" alt="user">
+                            <div class="w-full flex flex-col">
+                                <h1 class="font-roboto font-normal text-lg leading-[28.8px] text-black">David Oshodi</h1>
+                                <h3 class="font-roboto font-normal text-base leading-[22.4px] text-[#475569]">Manager</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- USER 5 -->
+                    <div class="slider-item bg-white gap-4 justify-between flex flex-col shadow-user-card-shadow">
+                        <div class="flex py-4 items-center gap-2">
+                            <img class="w-[21.03px] h-[32px]" src="./assets/vector9.svg" alt="shell">
+                            <h6 class="font-roboto font-bold text-2xl leading-[26.4px] text-[#475569]">WAWES</h6>
+                        </div>
+                        <p class="font-roboto font-normal text-2xl leading-[38.4px] ">Magna egestas aliquet ut integer non. Sed diam enim nibh sit. Aliquam laoreet aenean metus nibh eu scelerisque.</p>
+                        <div class="w-full flex pt-4 gap-4 items-center">
+                            <img class="w-[64px] h-[64px] aspect-square rounded-[100px] gap-[10px]" src="./assets/a85b510d3d1428b1c489a04f38d17d22.jpeg" alt="user">
+                            <div class="w-full flex flex-col">
+                                <h1 class="font-roboto font-normal text-lg leading-[28.8px] text-black">David Oshodi</h1>
+                                <h3 class="font-roboto font-normal text-base leading-[22.4px] text-[#475569]">Manager</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            
+        </div>
+
+        <!-- GROW YOUR COLLECTION -->
+        <div class="w-full h-fit relative">
+        <div class="w-full max-lg:px-[16px] max-lg:py-[48px] lg:pt-[80px] lg:pr-[80px] lg:pb-[128px] lg:pl-[80px] max-lg:gap-[32px] lg:gap-[80px] flex flex-col max-lg:justify-center max-lg:items-center">
+            <div class="flex flex-col gap-8 max-lg:justify-center max-lg:items-center">
+                <h2 class="max-lg:font-bold lg:font-extrabold max-lg:text-[32px] lg:text-[56px] max-lg:leading-[35.2px] lg:leading-[61.6px] text-[#0F172A] gap-2">Grow your collection</h2>
+                <p class="font-roboto font-normal text-lg leading-[28.8px] text-[#0F172A] max-lg:text-center">
+                    Enim neque massa porta adipiscing elit. Sem libero id faucibus nibh amet dictum pellentesque sed. Eu non turpis risus odio sapien, fames sit rhoncus.
+                    Nec magna sed interdum sit purus tellus. Et volutpat proin neque placerat at bibendum quam tellus.
+                </p>
+            </div>
+            <div class="max-lg:flex lg:justify-between  max-lg:flex-col w-full max-lg:pb-[96px] max-lg:justify-center lg:grid lg:grid-cols-custom-grid gap-[80px]">
+                <div class="max-lg:w-fit lg:w-[256px] flex  max-lg:flex-row lg:flex-col gap-4">
+                    <!-- BIBENDUM TELLUS-->
+                    <button class="flex w-full rounded-lg p-4 items-center justify-start hover:shadow-button-shadow z-20">
+                        <div class="w-6 h-6 flex justify-center items-center">
+                            <img class="w-[18.21px] h-[18.21px]" src="./assets/vector13.svg" alt="icon">
+                        </div>
+                        <h3 class="w-full whitespace-nowrap px-4 font-roboto font-medium text-xl leading-6 tracking-[0.5px] text-[#0F172A]">
+                            Bibendum tellus
+                        </h3>
+                        <div class="w-6 h-6 flex justify-center items-center max-lg:hidden">
+                            <img class="w-[14px] h-[13.31px]" src="./assets/vector19.svg" alt="icon">
+                        </div>
+
+                    </button>
+                    <!-- CRAS EGET-->
+                    <button class="flex w-full rounded-lg p-4 items-center justify-start hover:shadow-button-shadow z-20">
+                        <div class="w-6 h-6 flex justify-center items-center">
+                            <img class="w-[18.21px] h-[18.21px]" src="./assets/vector14.svg" alt="icon">
+                        </div>
+                        <h3 class="w-full whitespace-nowrap px-4 font-roboto font-medium text-xl leading-6 tracking-[0.5px] text-[#0F172A]">
+                            Cras eget
+                        </h3>
+                    </button>
+                    <!-- DOLOR PHARETRA -->
+                    <button class="flex w-full rounded-lg p-4 items-center justify-start hover:shadow-button-shadow z-20">
+                        <div class="w-6 h-6 flex justify-center items-center">
+                            <img class="w-[18.21px] h-[18.21px]" src="./assets/vector15.svg" alt="icon">
+                        </div>
+                        <h3 class="w-full px-4 whitespace-nowrap font-roboto font-medium text-xl leading-6 tracking-[0.5px] text-[#0F172A]">
+                            Dolor pharetra
+                        </h3>
+                    </button>
+                    <!--AMET, FRINGILLA-->
+                    <button class="flex w-full rounded-lg p-4 items-center justify-start hover:shadow-button-shadow z-20">
+                        <div class="w-6 h-6 flex justify-center items-center">
+                            <img class="w-[18.21px] h-[18.21px]" src="./assets/vector18.svg" alt="icon">
+                        </div>
+                        <h3 class="w-full whitespace-nowrap px-4 font-roboto font-medium text-xl leading-6 tracking-[0.5px] text-[#0F172A]">
+                            Amet, fringilla
+                        </h3>
+                    </button>
+                    <!--AMET NIBH-->
+                    <button class="flex w-full rounded-lg p-4 items-center justify-start hover:shadow-button-shadow z-20">
+                        <div class="w-6 h-6 flex justify-center items-center">
+                            <img class="w-[18.21px] h-[18.21px]" src="./assets/vector16.svg" alt="icon">
+                        </div>
+                        <h3 class="w-full whitespace-nowrap px-4 font-roboto font-medium text-xl leading-6 tracking-[0.5px] text-[#0F172A]">
+                            Amet nibh
+                        </h3>
+                    </button>
+                    <!--SED VELIT-->
+                    <button class="flex w-full h-fit rounded-lg p-4 items-center justify-start hover:shadow-button-shadow z-20">
+                        <div class="w-6 h-6 flex justify-center items-center">
+                            <img class="w-[18.21px] h-[18.21px]" src="./assets/vector17.svg" alt="icon">
+                        </div>
+                        <h3 class="w-full whitespace-nowrap px-4 font-roboto font-medium text-xl leading-6 tracking-[0.5px] text-[#0F172A]">
+                            Sed velit
+                        </h3>
+                    </button>
+                </div>
+
+                <div class="w-full max-lg:h-[259px] lg:h-[556px] relative">
+                    <!--FIRST IMAGE -->
+                    <div class="absolute top-0 left-0 max-lg:w-[75%] max-lg:h-fit lg:w-[75%] lg:max-h-[451px] lg:max-w-[759px] aspect-video overflow-hidden shadow-dark-xxl-combined border-[5px] border-white rounded-[20px] flex flex-col z-10">
+                        <div class="w-full h-[41px] py-2 px-4 gap-7 flex bg-white ">
+                            <div class="gap-[5px] flex items-center">
+                                <div class="w-[10px] h-[10px] flex items-center justify-center">
+                                    <img src="./assets/vector4.svg" alt="SVG Image" width="8.33" height="8.33">
+                                </div>
+                                <div class="w-[10px] h-[10px] flex items-center justify-center">
+                                    <img src="./assets/vector5.svg" alt="SVG Image" width="8.33" height="8.33">
+                                </div>
+                                <div class="w-[10px] h-[10px] flex items-center justify-center">
+                                    <img src="./assets/vector6.svg" alt="SVG Image" width="8.33" height="8.33">
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="rounded gap-[10px] z-20">
+                            <div class="w-full h-full max-h-full flex bg-blue-300 rounded-b-[15px]">
+                                <img class="object-cover rounded-b-[15px]" src="./assets/db2b7a8550bf0cb7642ab1c51682f47c.jpeg" alt="video">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SECOND IMAGE -->
+                    <div class="relative top-[20%] left-[50%] -translate-x-1/2 max-lg:w-[75%] lg:max-h-[451px] lg:max-w-[759px] max-lg:h-fit lg:w-[75%] aspect-video z-20">
+
+                        <img class="absolute border-[5px] rounded-[10px] gap-[10px] top-1/2 -translate-y-1/2 right-0 translate-x-[25%] max-lg:w-[30%] max-lg:aspect-square max-lg:h-fit lg:max-h-[451px] lg:max-w-[759px] lg:w-fit lg:aspect-square lg:h-[60%] z-30" src="./assets/8c9f16fc1b6bb7a68d6f55fc9ce34b1d.jpeg" alt="image">
+
+                        <div class="w-full h-full overflow-hidden shadow-dark-xxl-combined border-[5px] border-white rounded-[20px] flex flex-col">
+                            <div class="w-full h-[41px] py-2 px-4 gap-7 flex bg-white ">
+                                <div class="gap-[5px] flex items-center">
+                                    <div class="w-[10px] h-[10px] flex items-center justify-center">
+                                        <img src="./assets/vector4.svg" alt="SVG Image" width="8.33" height="8.33">
+                                    </div>
+                                    <div class="w-[10px] h-[10px] flex items-center justify-center">
+                                        <img src="./assets/vector5.svg" alt="SVG Image" width="8.33" height="8.33">
+                                    </div>
+                                    <div class="w-[10px] h-[10px] flex items-center justify-center">
+                                        <img src="./assets/vector6.svg" alt="SVG Image" width="8.33" height="8.33">
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="rounded gap-[10px] z-20">
+                                <div class="w-full h-full max-h-full flex rounded-b-[15px]">
+                                    <img class="object-cover w-full rounded-b-[15px]" src="./assets/picture2.png" alt="video">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+    
+                </div>
+            </div>
+            
+            </div>
+            <img class="w-full absolute bottom-0" src="./assets/Vector20.svg" alt="waves">
+            <img class="w-full absolute bottom-0" src="./assets/Vector21.svg" alt="waves">
+            <img class="w-full absolute bottom-0" src="./assets/Vector22.svg" alt="waves">
+        </div>
+
+        <!-- SHOES COLLECTED -->
+        <div class="w-full h-[717px] bg-[#78350F] flex justify-center p-[80px] gap-[80px] border-t-[1px] border-[#78350F] relative">
+            <div class="absolute flex flex-col top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 items-center justify-center gap-2 z-20">
+                <h1 class="font-roboto font-extrabold text-[48px] lg:text-[96px] leading-[52.8px] lg:leading-[105.6px] text-[#FFFBEB]">11,658,467</h1>
+                <h2 class="font-roboto font-bold lg:font-extrabold text-[32px] lg:text-[56px] leading-[35.2px] lg:leading-[61.6px] text-[#FFFBEB]">Shoes Collected</h2>
+            </div>
+
+            <div class="w-[1049px] h-[633px] flex absolute left-1/2 top-0 -translate-x-[15%] lg:left-1/2 lg:-translate-x-1/2 overflow-visible">
+                <div class="w-[250px] h-fit rounded-[5px] bg-[#E2E8F0] top-[25%] left-[3.7%] px-4 pt-4 pb-2 z-20 absolute">
+                    <img class="absolute top-[100%] left-[50%] -translate-x-1/2 w-[12px] h-[6px] z-20" src="./assets/Arrow Bottom.svg" alt="bottom">
+                    Emma Simpson collected one pair of Cool Shoes.
+                </div>
+                <div class="absolute flex border-[5px] rounded-[10px] gap-[10px] w-[256px] h-[200px] top-[-4%] left-[3.4%] z-20 overflow-hidden">
+                    <img class="object-cover w-full" src="./assets/b44096b1fc330e8b20168d89aef4b5e7.jpeg" alt="ellipse">
+                </div>
+                
+                
+                <img class="absolute w-[3%] top-[35%] left-[14%]" src="./assets/Ellipse 29.svg" alt="ellipse">
+                
+                <img class="absolute w-[69%] top-[11%] left-[19.7%] " src="./assets/Ellipses.svg" alt="chart">
+
+                <img class="object-fill opacity-50 w-[1049px] h-[633px] z-10" src="./assets/chart.svg" alt="chart">
+            </div>
+        </div>
+
+
+    </main>
+    
+    <!-- FOOTER -->
+    <footer class="w-full bg-custom-color3 px-20">
+        <div class="w-full border-y-[1px] py-12 border-[#334155] max-lg:flex max-lg:flex-col max-lg:justify-center max-lg:items-center lg:grid lg:grid-cols-12 gap-12">
+            <div class="w-full col-span-3 max-lg:items-center max-lg:text-center max-lg:flex max-lg:flex-col">
+                <h1 class="font-roboto text-base font-medium leading-[17.6px] text-white py-3 gap-2">Product</h1>
+                <ul>
+                    <li class="font-roboto font-normal text-base leading-[22.4px] text-[#E2E8F0] py-3 gap-2"><a href="#pricing">Pricing</a></li>
+                    <li class="font-roboto font-normal text-base leading-[22.4px] text-[#E2E8F0] py-3 gap-2"><a href="#overview">Overview</a></li>
+                    <li class="font-roboto font-normal text-base leading-[22.4px] text-[#E2E8F0] py-3 gap-2"><a href="#browse">Browse</a></li>
+                    <li class="font-roboto font-normal text-base leading-[22.4px] text-[#E2E8F0] py-3 gap-2"><a href="#accessibility">Accessibility</a></li>
+                    <li class="font-roboto font-normal text-base leading-[22.4px] text-[#E2E8F0] py-3 gap-2"><a href="#five">Five</a></li>
+                </ul>
+            </div>
+            <div class="w-full col-span-3 max-lg:items-center max-lg:text-center max-lg:flex max-lg:flex-col">
+                <h1 class="font-roboto text-base font-medium leading-[17.6px] text-white py-3 gap-2">Solutions</h1>
+                <ul>
+                    <li class="font-roboto font-normal text-base leading-[22.4px] text-[#E2E8F0] py-3 gap-2"><a href="#pricing">Brainstorming</a></li>
+                    <li class="font-roboto font-normal text-base leading-[22.4px] text-[#E2E8F0] py-3 gap-2"><a href="#ideation">Ideation</a></li>
+                    <li class="font-roboto font-normal text-base leading-[22.4px] text-[#E2E8F0] py-3 gap-2"><a href="#wireframing">Wireframing</a></li>
+                    <li class="font-roboto font-normal text-base leading-[22.4px] text-[#E2E8F0] py-3 gap-2"><a href="#research">Research</a></li>
+                    <li class="font-roboto font-normal text-base leading-[22.4px] text-[#E2E8F0] py-3 gap-2"><a href="#design">Design</a></li>
+                </ul>
+            </div>
+            <div class="w-full col-span-3 max-lg:items-center max-lg:text-center max-lg:flex max-lg:flex-col">
+                <h1 class="font-roboto text-base font-medium leading-[17.6px] text-white py-3 gap-2">Support</h1>
+                <ul>
+                    <li class="font-roboto font-normal text-base leading-[22.4px] text-[#E2E8F0] py-3 gap-2"><a href="#contactus">Contact Us</a></li>
+                    <li class="font-roboto font-normal text-base leading-[22.4px] text-[#E2E8F0] py-3 gap-2"><a href="#developers">Developers</a></li>
+                    <li class="font-roboto font-normal text-base leading-[22.4px] text-[#E2E8F0] py-3 gap-2"><a href="#documentation">Documentation</a></li>
+                    <li class="font-roboto font-normal text-base leading-[22.4px] text-[#E2E8F0] py-3 gap-2"><a href="#integration">Integrations</a></li>
+                    <li class="font-roboto font-normal text-base leading-[22.4px] text-[#E2E8F0] py-3 gap-2"><a href="#reports">Reports</a></li>
+                </ul>
+            </div>
+            <div class="w-full col-span-3 max-lg:items-center max-lg:text-center max-lg:flex max-lg:flex-col">
+                <h1 class="font-roboto text-base font-medium leading-[17.6px] text-white py-3 gap-2 flex">Get the App</h1>
+                <ul class="gap-[10px] flex flex-col max-lg:justify-center max-lg:items-center">
+                    <li class="">
+                        <a href="#appstore">
+                            <img src="./assets/appstore.png" alt="appstore">
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="#googleplay">
+                            <img src="./assets/googleplay.png" alt="googleplay">
+                        </a>
+                    </li>
+                </ul>
+                <h1 class="pt-12 pb-3 text-[#E2E8F0] font-roboto text-base font-medium leading-[17.6px]">Follow Us</h1>
+                <ul class="flex flex-row gap-4">
+                    <li>
+                        <a href="#youtube">
+                            <img class="w-6 h-6" src="./assets/youtube.png" alt="youtube">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#facebook">
+                            <img class="w-6 h-6" src="./assets/facebook.png" alt="facebook">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#twitter">
+                            <img class="w-6 h-6" src="./assets/twitter.png" alt="twitter">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#instagram">
+                            <img class="w-6 h-6" src="./assets/instagram.png" alt="instagram">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#linkedin">
+                            <img class="w-6 h-6" src="./assets/linkedin.png" alt="linkedin">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="py-6 gap-12 w-full font-roboto flex max-lg:flex-col justify-between items-center">
+            <h1 class="text-[#E2E8F0] font-roboto font-normal text-base leading-[22.4px]">Collers @ 2023. All rights reserved.</h1>
+            <ul class="text-[#E2E8F0] font-roboto flex gap-8">
+                <li class="font-normal text-base leading-[22.4px] gap-2 py-3">Terms</li>
+                <li class="font-normal text-base leading-[22.4px] gap-2 py-3">Privacy</li>
+                <li class="font-normal text-base leading-[22.4px] gap-2 py-3">Contact</li>
+                <li class="font-normal text-base leading-[22.4px] gap-2 py-3 flex items-center"><img class="w-6 h-6" src="./assets/Vector.png" alt="en"> EN</li>
+            </ul>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var container = document.getElementById("sliderContainer");
+            var middle = (container.scrollWidth - container.clientWidth) / 2; 
+            container.scrollLeft = middle;
+        });
+
+      document.addEventListener("DOMContentLoaded", function() {
+            var slider = document.getElementById("sliderContainer");
+            var prevBtn = document.getElementById("prevBtn");
+            var nextBtn = document.getElementById("nextBtn");
+
+            nextBtn.addEventListener("click", function() {
+                slider.scrollLeft += 100;
+            });
+
+            prevBtn.addEventListener("click", function() {
+                slider.scrollLeft -= 100;
+            });
+        });
+
+    </script>
+</body>
+</html>
